@@ -1,8 +1,10 @@
 <template>
   <div class="header">
-    
     <div class="flex items-center my-2 justify-end mr-4 text-sm font-bold">
-      <router-link class="flex items-center rounded-2xl  p-2 justify-center" to="cart">
+      <router-link
+        class="flex items-center rounded-2xl p-2 justify-center"
+        to="cart"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -19,17 +21,12 @@
         </svg>
         <p class="text-slate-400 pr-[12px]">Cart</p>
       </router-link>
-      
-      <p class="mr-2" v-if="this.token">Hi: {{ currentUser.name }}</p>
+
+      <p class="mr-2" v-if="this.token">Hi: {{user.username}}</p>
+     <router-link  @click="logout"  class="bg-red-500 p-2 mx-4 text-white px-4 rounded-2xl hover:bg-red-700" v-if="this.token"  to="/login">Logout</router-link>
+     
       <router-link
-        class="bg-red-500 p-2 mx-4 text-white px-4 rounded-2xl hover:bg-red-700"
-        v-if="this.token"
-        @click="logout"
-        to="/logout"
-        >Logout</router-link
-      >
-      <router-link
-        class="bg-blue-500 p-2 mx-4 text-white px-4 rounded-2xl hover:bg-blue-700"
+        class="bg-[#9a772c] p-2 mx-4 text-white px-4 rounded-2xl hover:bg-blue-700"
         v-if="this.token == null"
         to="/register"
         >Register</router-link
@@ -42,44 +39,44 @@
       >
     </div>
     <header
-      class="h-[103px] bg-[#197cd8] mt-4 flex items-center justify-around"
+      class="h-[103px] bg-[#efa707] mt-4 flex items-center justify-around"
     >
       <div>
         <a
           href="
         "
           ><img
-            src="http://www.maufree.vn/profiles/maufreevn/uploads/attach/1502424953_logo.png"
+            src="https://theme.hstatic.net/200000326645/1000824936/14/logo.png?v=260"
             alt="logo"
         /></a>
       </div>
       <div>
         <router-link
-          class="px-4 py-10 bg-[#0766bd] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
+          class="px-4 py-10 bg-[#9a772c] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
           to="/home"
           >Trang Chủ</router-link
         >
 
         <router-link
-          class="px-4 py-10 hover:bg-[#0766bd] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
+          class="px-4 py-10 hover:bg-[#9a772c] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
           to="/gioithieu"
           >Giới thiệu</router-link
         >
 
         <router-link
-          class="px-4 py-10 hover:bg-[#0766bd] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
+          class="px-4 py-10 hover:bg-[#9a772c] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
           to="/STL"
           >STL File & 3d</router-link
         >
 
         <router-link
-          class="px-4 py-10 hover:bg-[#0766bd] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
+          class="px-4 py-10 hover:bg-[#9a772c] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
           to="/"
           >Jewlry 3d models</router-link
         >
 
         <router-link
-          class="px-4 py-10 hover:bg-[#0766bd] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
+          class="px-4 py-10 hover:bg-[#9a772c] text-white text-[14px] font-bold italic uppercase border-1 border-[#a0c1e0] transition ease-in-out duration-200"
           to="/"
           >Hướng dẫn kỹ thuật</router-link
         >
@@ -107,57 +104,54 @@
       </svg>
     </div>
   </div>
+  <!-- slide -->
   <div>
     <img
-      class="w-full"
-      src="http://www.maufree.vn/profiles/maufreevn/uploads/attach/1688616070_banner-lk.png"
+      src="https://theme.hstatic.net/200000326645/1000824936/14/slideshow_1.jpg?v=260"
       alt=""
     />
   </div>
+
 </template>
 <script>
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default {
-  name: "Header",
   data() {
     return {
-      currentUser: {},
-      token: localStorage.getItem("token"),
+      token: Cookies.get("token"),
+      user:{}
     };
   },
   methods: {
-    logout() {
-      if (this.token) {
-        axios.defaults.headers.common["Authorization"] = "Bearer " + this.token;
-
-        axios
-          .get("http://127.0.0.1:8000/api/logout")
-          .then((response) => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("user_id");
-            this.$router.push({ name: "login" });
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }
-    },
-  },
-  mounted() {
-    if (this.token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + this.token;
-
+    logout: () => {
       axios
-        .get("http://127.0.0.1:8000/api/user")
+        .get("http://localhost:3000/auth/logout")
         .then((response) => {
-          this.currentUser = response.data.user;
-          localStorage.setItem("user_id", response.data.user.id);
+          Cookies.remove("token");
         })
         .catch((error) => {
           console.error(error);
         });
-    }
+    },
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/auth/getUser", {
+        headers: {
+          Authorization: "Bearer " + this.token, // Thêm khoảng trắng giữa "Bearer" và token
+        },
+      })
+      .then((response) => {
+        // Xử lý phản hồi từ server (response.data sẽ chứa thông tin người dùng)
+        this.user = response.data;
+        console.log(response);
+      })
+      .catch((error) => {
+        // Xử lý lỗi
+        console.error(error);
+      });
   },
 };
 </script>

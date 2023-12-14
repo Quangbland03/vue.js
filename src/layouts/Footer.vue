@@ -1,47 +1,75 @@
 <template>
-  <div class="about">
-    <div
-      class="bg-[#282828] w-full h-[314px] text-white p-6 flex justify-between items-start"
-    >
-      <div class="space-y-6">
-        <p class="uppercase font-bold text-base">Hướng dẫn kỹ thuật</p>
-        <br />
-        <p class="text-sm font-bold">-Sử dụng phần mền Jdpain</p>
-        <p class="text-sm font-bold">-Sưa chữa Spaindle</p>
-        <p class="text-sm font-bold">-Sửa chữa máy CNC cơ bản</p>
-        <p class="text-sm font-bold">-Vận Hành máy cnc</p>
-      </div>
-      <div class="space-y-6">
-        <p class="uppercase font-bold text-base">Thông tin chung</p>
-        <p class="text-sm font-bold">-Giới thiệu</p>
-        <p class="text-sm font-bold">-Quyền sở hữu trí tuệ</p>
-        <p class="text-sm font-bold">-Chính sách bảo mật thông tin</p>
-      </div>
-      <div
-        class="h-[258px] w-[321px] bg-[#383838] p-2 space-y-3 px-4 font-medium"
-      >
-        <span class="text-lg font-bold">Maufree.vn</span>
-        <span class="text-sm">
-          :là một dự án chia sẻ bộ File mẫu điêu khắc Jdpaint miễn phí của
-          công</span
-        >
-
-        <p class="text-sm mt-2">
-          Trong quá trình xây dựng dự án chắc chắn sẽ có nhiều thiếu sót cần
-          được cải tiến. Mọi góp ý và đóng góp xin gửi về:
-        </p>
-        <div>
-          <p class="text-sm">Email:maufree.vn@gmail.com</p>
-        </div>
-        <div>
-          <p class="text-sm">Phone: 0865.588.588</p>
-        </div>
-        <div>
-          <p class="text-sm">Website: CNC ĐÔNG PHƯƠNG</p>
-        </div>
-      </div>
-    </div>
+    <div>
+    <img
+      class="w-full"
+      src="https://file.hstatic.net/1000202622/file/2_footer-website-1_8f8c151515d24bd7a99d78c3d3bd20c8.png"
+      alt=""
+    />
   </div>
-</template>
+   <footer class="px-3 pt-4 lg:px-9 border-t-2 bg-gray-50">
+    <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
 
-<style></style>
+        <div class="sm:col-span-2">
+            <a href="#" class="inline-flex items-center">
+                <img src="https://mcqmate.com/public/images/logos/60x60.png" alt="logo" class="h-8 w-8">
+                <span class="ml-2 text-xl font-bold tracking-wide text-gray-800">MykingDom</span>
+            </a>
+            <div class="mt-6 lg:max-w-xl">
+                <p class="text-sm text-gray-800">
+                  ToyWeb is an online playground where creativity meets fun! Explore a vibrant world of educational and entertaining toys for children. From mind-stimulating educational games to imaginative play essentials, ToyWeb offers a diverse range of products from trusted brands. We are committed to providing families with a safe and convenient online shopping experience, assisting parents in finding quality toys that contribute to comprehensive child development. 
+                    </p>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-2 text-sm">
+            <p class="text-base font-bold tracking-wide text-gray-900">Popular Courses</p>
+            <a href="#">UPSC - Union Public Service Commission</a>
+            <a href="#">General Knowledge</a>
+            <a href="#">MBA</a>
+            <p class="text-base font-bold tracking-wide text-gray-900">Popular Topics</p>
+            <a href="#">Human Resource Management</a>
+            <a href="#">Operations Management</a>
+            <a href="#">Marketing Management</a>
+        </div>
+
+        <div>
+            <p class="text-base font-bold tracking-wide text-gray-900">COMPANY IS ALSO AVAILABLE ON</p>
+            <div class="flex items-center gap-1 px-2">
+                <a href="#" class="w-full min-w-xl">
+                    <img src="https://mcqmate.com/public/images/icons/playstore.svg" alt="Playstore Button"
+                        class="h-10">
+                </a>
+                <a class="w-full min-w-xl" href="https://www.youtube.com/channel/UCo8tEi6SrGFP8XG9O0ljFgA">
+                    <img src="https://mcqmate.com/public/images/icons/youtube.svg" alt="Youtube Button"
+                        class="h-28">
+                </a>
+            </div>
+            <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
+            <div class="flex">
+                <p class="mr-1 text-gray-800">Email:</p>
+                <a href="#" title="send email">quangnvgch211372@company.com</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+        <p class="text-sm text-gray-600">© Copyright 2023 quangnvgch211372@company. All rights reserved.</p>
+        <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+            <li>
+                <a href="#"
+                    class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy
+                    &amp; Cookies Policy
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Disclaimer
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</footer>
+ 
+</template>

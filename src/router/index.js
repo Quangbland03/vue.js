@@ -10,62 +10,90 @@ import Detail from '../views/user/Detail.vue'
 import Cart from '../views/user/Cart.vue'
 import Admin from '../layouts/Admin.vue'
 import Product from '../views/admin/Product.vue'
+import AddProduct from '../views/admin/AddProduct.vue'
+import Category from '../views/admin/Category.vue'
+import AddCategory from '../views/admin/AddCategory.vue'
+import EditCategory from '../views/admin/EditCategory.vue'
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
-  routes: [
-    {
-      path:'/page',
-      name:'Admin',
-      component:Admin,
-      redirect: '/page',
-      children:[
-          {
-              path:'/page',
-              name:'product',
-              component:Product
-          },
-       
+  routes: [{
+      path: '/admin',
+      name: 'Admin',
+      component: Admin,
+      redirect: '/admin',
+      children: [{
+          path: '/admin',
+          name: 'product',
+          component: Product
+        },
+        {
+          path: '/admin/add',
+          name: 'AddProduct',
+          component: AddProduct
+        },
+        {
+          path: '/admin/category/add',
+          name: 'AddCategory',
+          component: AddCategory
+        },
+        {
+          path: '/admin/category',
+          name: 'category',
+          component: Category
+        },
+        {
+          path: '/admin/category/edit/:id',
+          name: 'categoryEdit',
+          component: EditCategory
+        },
       ]
-  },
-    
-    
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+    }, {
+      path: '/login',
+      name: 'login',
+      component: Login,
+    },
+
     {
       path: '/',
       name: 'user',
       component: User,
       redirect: '/',
-      children: [
+      children: [{
+          path: '/',
+          name: 'Home',
+          component: Home
+        },
+
         {
-        path: '/',
-        name: 'Home',
-        component: Home
-      }, 
-      
-      {
-        path: '/detail/:id',
-        name: 'detail',
-        component: Detail
-      },
-      {
-        path: '/cart',
-        name: 'cart',
-        component: Cart
-      },
-     
-      
-     
-    ]
+          path: '/detail/:id',
+          name: 'detail',
+          component: Detail
+        },
+        {
+          path: '/cart',
+          name: 'cart',
+          component: Cart
+        },
+
+
+
+      ]
     },
     // {
     //   path: '/admin',
     //   name: 'admin',
     //   component: Admin ,
     //   // redirect: '/admin',
-      
-    // },
-    
+
   ]
+  // },
+
 })
 
 export default router

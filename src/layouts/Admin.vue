@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between">
-    <aside class="bg-gray-800 text-white min-h-screen p-4 w-[25%]">
+  <div class="flex  ">
+    <aside class="bg-gray-800 text-white min-h-screen p-4 w-[20%]">
       <h1 class="text-2xl font-semibold mb-6">Admin Dashboard</h1>
       <ul>
         <li class="mb-2">
